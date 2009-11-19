@@ -62,6 +62,7 @@ module DbpediaFinder
     def clean_label(label)
       # Remove initials (as they are expanded in Wikipedia/DBpedia labels)
       cleaned_label = label.split(' ').select { |l| l.split('.').size == 1 }.join(' ')
+      cleaned_label = cleaned_label.split("'").join("\\'")
       cleaned_label
     end
 
