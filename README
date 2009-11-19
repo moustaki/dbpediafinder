@@ -1,0 +1,23 @@
+dbpediafinder by Yves Raimond
+
+A very small Ruby gems for finding URIs in DBpedia, given a label and an optional disambiguation string.
+
+Works in two steps:
+
+ 1) Uses Google AJAX API to find out possible candidates
+ 2) Uses DBpedia SPARQL end-point to validate one of those candidates
+
+Example use:
+
+  require 'rubygems'
+  require 'dbpediafinder'
+
+  finder = DbpediaFinder::Finder.new
+  finder.find('j.s. bach', 'composer')
+=> ["Johann Sebastian Bach", "http://en.wikipedia.org/wiki/Johann_Sebastian_Bach"]
+
+  finder.find('david aaronovitch', 'bbc radio presenter')
+=> ["David Aaronovitch", "http://en.wikipedia.org/wiki/David_Aaronovitch"]
+
+  finder.find('isle of wight')
+=> ["Isle of Wight", "http://en.wikipedia.org/wiki/Isle_of_Wight"]
