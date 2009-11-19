@@ -14,10 +14,10 @@ Example use:
 
   finder = DbpediaFinder::Finder.new
   finder.find('j.s. bach', 'composer')
-=> ["Johann Sebastian Bach", "http://en.wikipedia.org/wiki/Johann_Sebastian_Bach"]
+=> ["Johann Sebastian Bach", "http://dbpedia.org/resource/Johann_Sebastian_Bach"]
 
   finder.find('david aaronovitch', 'bbc radio presenter')
-=> ["David Aaronovitch", "http://en.wikipedia.org/wiki/David_Aaronovitch"]
+=> ["David Aaronovitch", "http://dbpedia.org/resource/David_Aaronovitch"]
 
   finder.find('isle of wight')
-=> ["Isle of Wight", "http://en.wikipedia.org/wiki/Isle_of_Wight"]
+=> ["Isle of Wight", "http://dbpedia.org/resource/Isle_of_Wight"]

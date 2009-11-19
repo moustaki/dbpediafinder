@@ -17,6 +17,7 @@ module DbpediaFinder
       results = google_search(label, disambiguation)
       results.each do |uri|
         dbpedia = wikipedia_to_dbpedia(uri)
+        next if dbpedia.split('Category:').size > 1
         query = "
           PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
           SELECT DISTINCT ?label WHERE {
@@ -27,7 +28,7 @@ module DbpediaFinder
           }
         "
         match = @store.select query
-        return [match[0]['label'], uri] if match.size > 0
+        return [match[0]['label'], dbpedia] if match.size > 0
       end
       return nil
     end
